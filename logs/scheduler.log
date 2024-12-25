@@ -1,0 +1,37 @@
+2024-12-25 10:59:46,332 ERROR scheduler Exception in Enqueue Events for Site fixtures
+Traceback (most recent call last):
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/utils/scheduler.py", line 75, in enqueue_events_for_site
+    if is_scheduler_inactive():
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/utils/scheduler.py", line 117, in is_scheduler_inactive
+    if is_scheduler_disabled(verbose=verbose):
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/utils/scheduler.py", line 130, in is_scheduler_disabled
+    frappe.db.get_single_value("System Settings", "enable_scheduler")
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/database/database.py", line 839, in get_single_value
+    df = frappe.get_meta(doctype).get_field(fieldname)
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/__init__.py", line 1317, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/model/meta.py", line 63, in get_meta
+    meta = Meta(doctype)
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/model/meta.py", line 117, in __init__
+    super().__init__("DocType", doctype)
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/model/document.py", line 126, in __init__
+    self.load_from_db()
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/model/meta.py", line 123, in load_from_db
+    super().load_from_db()
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/model/document.py", line 172, in load_from_db
+    frappe.throw(
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/__init__.py", line 602, in throw
+    msgprint(
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/__init__.py", line 567, in msgprint
+    _raise_exception()
+  File "/home/sarfras/frappe-bench-2/apps/frappe/frappe/__init__.py", line 518, in _raise_exception
+    raise exc
+frappe.exceptions.DoesNotExistError: DocType System Settings not found
+2024-12-25 14:41:19,171 ERROR scheduler Skipped queueing erpnext.utilities.bulk_transaction.retry because it was found in queue for fixtures
+2024-12-25 14:41:19,220 ERROR scheduler Skipped queueing erpnext.stock.doctype.repost_item_valuation.repost_item_valuation.repost_entries because it was found in queue for fixtures
+2024-12-25 15:10:00,881 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for fixtures
+2024-12-25 15:10:00,887 ERROR scheduler Skipped queueing frappe.monitor.flush because it was found in queue for fixtures
+2024-12-25 15:10:00,892 ERROR scheduler Skipped queueing frappe.email.queue.flush because it was found in queue for fixtures
+2024-12-25 15:25:32,531 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for fixtures
+2024-12-25 15:25:32,538 ERROR scheduler Skipped queueing frappe.monitor.flush because it was found in queue for fixtures
+2024-12-25 15:25:32,543 ERROR scheduler Skipped queueing frappe.email.queue.flush because it was found in queue for fixtures
